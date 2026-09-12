@@ -1,0 +1,207 @@
+/* --- Design tokens ------------------------------------------------------- */
+:root {
+  /* page background: warm off-white */
+  --bg: #faf8f3;
+
+  /* main text color: soft black */
+  --ink: #21201c;
+
+  /* secondary text: dates, descriptions */
+  --ink-light: #6b6558;
+
+  /* links and highlights: muted ink-blue */
+  --accent: #3c4a6b;
+
+  /* hairline dividers between list items */
+  --border: #e3ddd0;
+
+  /* keep line lengths readable — 70-80 characters */
+  --max-width: 640px;
+}
+
+/* --- Reset-ish basics ---------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+
+  font-family: Georgia,
+    'Iowan Old Style',
+    'Palatino Linotype',
+    'Book Antiqua',
+    Palatino,
+    serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* --- Page layout ------------------------------------------------------------
+   Every page wraps its content in <main class="page">. */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+}
+
+/* --- Navigation -------------------------------------------------------------
+   Plain text links with spacing, no separators. */
+nav.site-nav {
+  margin-bottom: 3rem;
+}
+
+nav.site-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  margin-right: 1.5rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+nav.site-nav a:hover,
+nav.site-nav a:focus {
+  border-bottom-color: var(--ink);
+}
+
+nav.site-nav a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* --- Headings and text --------------------------------------------------- */
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.25rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.lede {
+  color: var(--ink-light);
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+/* --- Post list (used on the homepage and blog index pages) --------------- */
+ul.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.post-list li {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+ul.post-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+ul.post-list .post-title {
+  display: block;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+ul.post-list .post-title:hover {
+  color: var(--accent);
+}
+
+ul.post-list .post-meta {
+  display: block;
+  color: var(--ink-light);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+/* --- Individual post pages ----------------------------------------------- */
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-header .post-meta {
+  color: var(--ink-light);
+  font-size: 0.95rem;
+}
+
+.post-body h2 {
+  margin-top: 2rem;
+}
+
+.post-body blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+  color: var(--ink-light);
+}
+
+.post-body code {
+  background: var(--border);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* --- GUTS stuff ---------------------------------------------------------- */
+.guts-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  min-width: 480px;
+}
+
+.guts-table th,
+.guts-table td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+}
+
+.guts-table-wrapper {
+  overflow-x: auto;
+}
+
+
+/* --- Footer -------------------------------------------------------------- */
+footer.site-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--ink-light);
+  font-size: 0.9rem;
+}
+
+/* --- Small screens ----------------------------------------------------------
+  Layout above works on mobile because it's a single centered column but 
+  shrink base font slightly and tighten padding for slight improvement. */
+@media (max-width: 480px) {
+  body {
+    font-size: 17px;
+  }
+
+  .page {
+    padding: 2rem 1rem 3rem;
+  }
+}
