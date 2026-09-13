@@ -77,11 +77,13 @@ function populateTable(headerId, bodyId, dataObj) {
     const bodyRow = document.getElementById(bodyId);
     const now = new Date();
 
-    const locations = dataObj.data;
+    let locations = dataObj.data;
     if (!Array.isArray(locations)) {
         console.error('Expected dataObj.data to be an array, got:', dataObj);
         return;
     }
+    // Drop last location (final arrival)
+    locations.pop();
 
     for (const location of locations) {
         const headerCell = document.createElement('th');
